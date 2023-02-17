@@ -65,7 +65,8 @@ postsController.edit = async (req, res, next) => {
 };
 postsController.show = async (req, res, next) => {
   try {
-    let post = await PostModel.findById(req.params.id)
+    const parameter = req.params.id;
+    let post = await PostModel.findById(mongoose.Types.ObjectId(parameter.split("\n")[0])
       .populate({
         path: "author",
         select: "_id username phonenumber avatar",
