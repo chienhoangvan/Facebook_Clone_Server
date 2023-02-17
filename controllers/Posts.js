@@ -68,13 +68,13 @@ postsController.show = async (req, res, next) => {
     let post = await PostModel.findById(req.params.id)
       .populate({
         path: "author",
-        select: "_id username phonenumber avatar",
+        // select: "_id username phonenumber avatar",
         model: "Users",
-        populate: {
-          path: "avatar",
-          select: "_id fileName",
-          model: "Documents",
-        },
+        // populate: {
+        //   path: "avatar",
+        //   select: "_id fileName",
+        //   model: "Documents",
+        // },
       });
     if (post == null) {
       return res
