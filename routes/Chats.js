@@ -16,7 +16,7 @@ chatsRoutes.get(
     asyncWrapper(chatController.getMessagesByFriendId),
 );
 
-chatsRoutes.delete(
+chatsRoutes.get(
     "/deleteChat/:chatId",
     auth,
     asyncWrapper(chatController.deleteChat),
